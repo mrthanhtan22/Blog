@@ -74,6 +74,7 @@
 
 
     </script>
+    <script type="text/javascript" language="javascript" src="admin_access/ckeditor/ckeditor.js" ></script>
     
     @yield('script');
 </body>

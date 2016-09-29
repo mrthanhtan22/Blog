@@ -8,7 +8,7 @@ class TinTuc extends Model
 {
     protected $table = "TinTuc";
 
-    public function theloai()
+    public function loaitin()
     {
     	return $this->belongsTo('App\LoaiTin','idLoaiTin','id');
     }

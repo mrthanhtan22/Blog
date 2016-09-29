@@ -40,13 +40,13 @@
         <!-- /.nav-second-level -->
     </li>
     <li>
-        <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
+        <a href="#"><i class="fa fa-users fa-fw"></i> Tin Tuc<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li>
-                <a href="#">List User</a>
+                <a href="admin/tintuc/danhsach">Danh sách tin tức</a>
             </li>
             <li>
-                <a href="#">Add User</a>
+                <a href="admin/tintuc/them">Thêm tin tức</a>
             </li>
         </ul>
         <!-- /.nav-second-level -->
