@@ -51,6 +51,19 @@
         </ul>
         <!-- /.nav-second-level -->
     </li>
+
+    <li>
+        <a href="#"><i class="fa fa-users fa-fw"></i> Slide<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a href="admin/slide/danhsach">Danh sách slide</a>
+            </li>
+            <li>
+                <a href="admin/slide/them">Thêm slide</a>
+            </li>
+        </ul>
+        <!-- /.nav-second-level -->
+    </li>
 </ul>
 </div>
 <!-- /.sidebar-collapse -->

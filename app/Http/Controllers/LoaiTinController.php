@@ -20,7 +20,8 @@ class LoaiTinController extends Controller
     public function getThem()
     {
     	$theloai = TheLoai::all();
-    	return view('admin.loaitin.them')->with('theloai', $theloai);
+        $loaitin = LoaiTin::all();
+    	return view('admin.loaitin.them',['loaitin'=>$loaitin, 'theloai'=>$theloai]);
     }
 
     public function postThem(Request $request)

@@ -23,7 +23,7 @@
         @if (session('thongbao'))
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Thon bao!</strong>{{session('thongbao')}}
+                <strong>Thong bao!</strong>{{session('thongbao')}}
             </div>
         @endif
 
@@ -55,3 +55,8 @@
 </div>
 @endsection
 
+@section('script')
+    <script>
+        
+    </script>
+@show
