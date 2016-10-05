@@ -73,6 +73,7 @@ class SlideController extends Controller
 
     public function postSua(Request $request, $id)
     {
+        $slide = Slide::find($id);
     	$this->validate($request, 
     		[
     			
@@ -82,7 +83,7 @@ class SlideController extends Controller
     		[
     			'Ten.required'=>'Ban chua nhap ten slide',	
     		]);
-    	$slide = Slide::find($id);
+    	
     	$slide->Ten = $request->Ten;
         $slide->NoiDung = $request->NoiDung;
         $slide->Link = $request->Link;
