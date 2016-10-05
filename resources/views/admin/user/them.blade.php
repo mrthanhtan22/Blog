@@ -5,8 +5,8 @@
 <div class="container-fluid">
 <div class="row">
 <div class="col-lg-12">
-    <h1 class="page-header">Slide
-        <small>Sua slide {{$slide->Ten}}</small>
+    <h1 class="page-header">user
+        <small>Thêm user</small>
     </h1>
 </div>
 <!-- /.col-lg-12 -->
@@ -24,29 +24,34 @@
                     <strong>Thông báo!</strong>{{session('thongbao')}}
                 </div>
             @endif
-    <form action="admin/slide/sua/{{$slide->id}}" enctype="multipart/form-data" method="POST">
+    <form action="admin/user/them" enctype="multipart/form-data" method="POST">
         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
         <div class="form-group">
-            <label>Ten Slide</label>
-            <input class="form-control" name="Ten" placeholder="Ten Slider"  value="{{$slide->Ten}}" />
+            <label>Ten user</label>
+            <input class="form-control" name="Ten" placeholder="Ten userr" />
         </div>
         <div class="form-group">
-            <label>Anh slide</label>
-            <p>
-                <img type="images" width="500px" src="upload/slide/{{$slide->Hinh}}">
-            </p>
-            <input type="file" name="Hinh" id="Hinh">
+            <label>Email</label>
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Nhap email">
         </div>
         <div class="form-group">
-            <label>Noi dung</label>
-            <textarea name="NoiDung" id="demo" class="ckeditor"> {{$slide->link}}</textarea>
+            <label>Password</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Nhap password">
         </div>
         <div class="form-group">
-            <label>Link Slide</label>
-            <input class="form-control" name="Link" placeholder="link Slider" value="{{$slide->link}}"/>
+            <label>Password</label>
+            <input type="password" name="re_password" id="inputPassword" class="form-control" placeholder="Nhap lai password">
         </div>
-        
-        <button type="submit" class="btn btn-default">Them moi slide</button>
+        <div class="form-group">
+            <label>Quyen nguoi dung</label>
+            <label class="radio-inline">
+                <input name="quyen" value="0" checked="check" type="radio">thuong
+            </label>
+            <label class="radio-inline">
+                <input name="quyen" value="1" type="radio">Admin
+            </label>
+        </div>
+        <button type="submit" class="btn btn-default">Them moi user</button>
         <button type="reset" class="btn btn-default">Lam moi</button>
     <form>
 </div>
