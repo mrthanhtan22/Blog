@@ -24,18 +24,32 @@ class UserController extends Controller
     {
     	$this->validate($request, 
     		[
-    			'Ten'=>'required|min:3|max:100'
+    			'name'      =>'required|min:3',
+                'email'    =>'required|unique:users,email',
+                'password' =>'required|min:3|max:32',
+                're_password' =>'required|same:password',
     		],
-
-    		[
-    			'txtCateName.required'=>'Ban chua nhap ten',
-    			'txtCateName.min'=>'Ten nho nhat 1 ki tu va lon nhat 100 ki tu',
-    			'txtCateName.max'=>'Ten nho nhat 1 ki tu va lon nhat 100 ki tu',
+            [
+                'name.min' => 'Ten it nhat ba ki tu',
+                'name.required' => 'Ten khong duoc bo trong',
+                'email.required' => 'Email khong duoc bo trong',
+                'email.unique' => 'email nay da ton tai',
+                'password.required'  => 'pass ko dc bo trong',
+                'password.min' => 'pass it nhat 3 va nhieu nhat 32 ki tu',
+                'password.max' => 'pass it nhat 3 va nhieu nhat 32 ki tu',
+                're_password.required' => 'ban chua nhap xac nhan mat khau',
+                're_password.same' => 'xac nhan mat khau khong trung voi mat khau',
+    		
+    			
     		]);
 
-    	$user = new user;
-    	$user->Ten = $request->txtCateName;
-    	$user->TenKhongDau = changeTitle($request->txtCateName);
+    	$user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+    	
+        $user->quyen = $request->quyen;
+    	
     	$user->save();
     	return redirect('admin/user/them')->with('thongbao', 'Thêm thành công');
     }
@@ -48,31 +62,51 @@ class UserController extends Controller
 
     public function postSua(Request $request, $id)
     {
-        $user = user::find($id);
-        $this->validate($request,
+        $this->validate($request, 
             [
-                'Ten'=> 'required|min:3|max:100'
+                'name'      =>'required|min:3',
             ],
-
             [
-                'Ten.required' => 'Ban chua nhap ten',
-                'Ten.min' => 'Ten nho nhat 1 ki tu va lon nhat 100 ki tu',
-                'Ten.max' =>'Ten nho nhat 1 ki tu va lon nhat 100 ki tu',
-            ]
-        );
+                'name.min' => 'Ten it nhat ba ki tu',
+                'name.required' => 'Ten khong duoc bo trong',
+            
+                
+            ]);
 
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->quyen = $request->quyen;
+       
+        if ($request->changePassword == "on") {
+            $this->validate($request, 
+            [
+                'password' =>'required|min:3|max:32',
+                're_password' =>'required|same:password',
+            ],
+            [
+                'password.required'  => 'pass ko dc bo trong',
+                'password.min' => 'pass it nhat 3 va nhieu nhat 32 ki tu',
+                'password.max' => 'pass it nhat 3 va nhieu nhat 32 ki tu',
+                're_password.required' => 'ban chua nhap xac nhan mat khau',
+                're_password.same' => 'xac nhan mat khau khong trung voi mat khau',
+            
+                
+            ]);
+
+             $user->password = bcrypt($request->password);
+        }
         
-        $user->Ten = $request->Ten;
-        $user->TenKhongDau = changeTitle($request->Ten);
+        
+        
         $user->save();
-        return redirect('admin/user/sua/'.$id)->with('thongbao','Sua thanh cong');
+        return redirect('admin/user/sua/'.$id)->with('thongbao', 'Sua thành công');
     }
 
     public function getXoa($id)
     {
-        $user = user::find($id);
-        $user->delete($id);
-        return redirect('admin/user/user')->with('thongbao', 'Xoa thành công');
+        $user = User::find($id);
+        $user->delete();
+        return redirect('admin/user/danhsach')->with('thongbao', 'Xoa thành công');
     }
 
 }

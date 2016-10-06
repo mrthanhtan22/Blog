@@ -150,7 +150,6 @@ class TinTucController extends Controller
     public function getXoa($id)
     {
         $tintuc = tintuc::find($id);
-        unlink("upload/tintuc/".$tintuc->Hinh);
         $tintuc->delete();
         return redirect('admin/tintuc/danhsach')->with('thongbao', 'Xoa thành công');
     }

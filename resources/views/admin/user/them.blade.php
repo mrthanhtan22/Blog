@@ -28,7 +28,7 @@
         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
         <div class="form-group">
             <label>Ten user</label>
-            <input class="form-control" name="Ten" placeholder="Ten userr" />
+            <input class="form-control" name="name" placeholder="Ten userr" />
         </div>
         <div class="form-group">
             <label>Email</label>
@@ -39,7 +39,7 @@
             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Nhap password">
         </div>
         <div class="form-group">
-            <label>Password</label>
+            <label>Xac nhan password</label>
             <input type="password" name="re_password" id="inputPassword" class="form-control" placeholder="Nhap lai password">
         </div>
         <div class="form-group">
