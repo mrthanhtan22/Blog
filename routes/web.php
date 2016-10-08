@@ -17,9 +17,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'admin'], function() {
+
+Route::get('/home', 'HomeController@index');
+Route::get('admin/dangnhap', 'UserController@getDangnhapAdmin');
+Route::post('admin/dangnhap', 'UserController@postDangnhapAdmin');
+Route::get('admin/logout', 'UserController@getDangxuatAdmin');
+
+Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function() {
     Route::group(['prefix' => 'theloai'], function() {
         Route::get('danhsach','TheLoaiController@getDanhSach');
 
@@ -90,3 +95,8 @@ Route::group(['prefix' => 'admin'], function() {
 
     });
 });
+
+
+Route::get('trangchu', 'PagesController@trangchu');
+
+Route::get('lienhe', 'PagesController@lienhe');

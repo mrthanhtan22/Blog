@@ -13,7 +13,7 @@
         <!-- /input-group -->
     </li>
     <li>
-        <a href="#"><i class="fa fa-dashboard fa-fw"></i> Quản lý</a>
+        <a href="admin/user/danhsach"><i class="fa fa-dashboard fa-fw"></i> Quản lý</a>
     </li>
     <li>
         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Thể loại<span class="fa arrow"></span></a>
