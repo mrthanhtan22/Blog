@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\TheLoai;
+use App\Slide;
+use App\LoaiTin;
 
 class PagesController extends Controller
 {
@@ -13,6 +15,9 @@ class PagesController extends Controller
     {
     	$theloai = TheLoai::all();
     	view()->share('theloai', $theloai);
+
+        $slide = Slide::all();
+        view()->share('slide', $slide);
     }
 
     public function trangchu()
