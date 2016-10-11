@@ -25,10 +25,10 @@
 	            		@if (count($tl->loaitin) > 0)
 					    <div class="row-item row">
 					    	<h3>
-					    	<a href="category.html">{{$tl->Ten}}</a>
+					    	<a href="">{{$tl->Ten}}</a>
 					    		@foreach ($tl->loaitin as $lt)
 					    			<small>
-		                		<a href="category.html"><i>{{$lt->Ten}}</i></a></small>
+		                		<a href="loaitin/{{$lt->id}}/{{$lt->TenKhongDau}}.html"><i>{{$lt->Ten}}</i></a></small>
 					    		@endforeach
 		                	</h3>
 							<?php 
@@ -37,15 +37,15 @@
 							?>
 		                	<div class="col-md-8 border-right">
 		                		<div class="col-md-5">
-			                        <a href="detail.html">
+			                        <a href="tintuc/{{$tin1['id']}}/{{$tin1['TieuDeKhongDau']}}.html">
 			                            <img class="img-responsive" src="upload/tintuc/{{$tin1['Hinh']}}" alt="">
 			                        </a>
 			                    </div>
 
 			                    <div class="col-md-7">
-			                        <h3>{{$tin1['TieuDe']}}</h3>
+			                        <h3><a href="tintuc/{{$tin1['id']}}/{{$tin1['TieuDeKhongDau']}}.html">{{$tin1['TieuDe']}} </a></h3>
 			                        <p>{{$tin1['TomTat']}}</p>
-			                        <a class="btn btn-primary" href="detail.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+			                        <a class="btn btn-primary" href="tintuc/{{$tin1['id']}}/{{$tin1['TieuDeKhongDau']}}.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
 								</div>
 
 		                	</div>
@@ -53,7 +53,7 @@
 							<div class="col-md-4">
 								
 								@foreach ($data as $row)
-									<a href="detail.html">
+									<a href="tintuc/{{$row->id}}/{{$row->TieuDeKhongDau}}.html">
 									<h4>
 										<span class="glyphicon glyphicon-list-alt"></span>
 										{{$row->TieuDe}}

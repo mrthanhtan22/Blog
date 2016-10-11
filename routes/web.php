@@ -100,3 +100,11 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function() {
 Route::get('trangchu', 'PagesController@trangchu');
 
 Route::get('lienhe', 'PagesController@lienhe');
+
+Route::get('loaitin/{id}/{TenKhongDau}.html', 'PagesController@loaitin');
+
+Route::get('tintuc/{id}/{TenKhongDau}.html', 'PagesController@tintuc');
+
+Route::get('dangnhap', 'PagesController@getDangnhap');
+Route::post('dangnhap', 'PagesController@postDangnhap');
+Route::get('logout', 'PagesController@getDangxuat');
