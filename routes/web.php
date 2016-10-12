@@ -108,3 +108,12 @@ Route::get('tintuc/{id}/{TenKhongDau}.html', 'PagesController@tintuc');
 Route::get('dangnhap', 'PagesController@getDangnhap');
 Route::post('dangnhap', 'PagesController@postDangnhap');
 Route::get('logout', 'PagesController@getDangxuat');
+Route::post('comment/{id}', 'CommentController@postComment');
+
+Route::get('nguoidung', 'PagesController@getNguoiDung');
+Route::post('nguoidung', 'PagesController@postNguoiDung');
+
+Route::get('dangki', 'PagesController@getDangKi');
+Route::post('dangki', 'PagesController@postDangKi');
+
+Route::post('timkiem', 'PagesController@timkiem');

@@ -23,9 +23,10 @@
                     </li>
                 </ul>
 
-                <form class="navbar-form navbar-left" role="search">
+                <form action="timkiem" method="post" class="navbar-form navbar-left" role="search">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
 			        <div class="form-group">
-			          <input type="text" class="form-control" placeholder="Search">
+			          <input type="text" class="form-control" name="tukhoa" placeholder="Search">
 			        </div>
 			        <button type="submit" class="btn btn-default">Submit</button>
 			    </form>
@@ -33,7 +34,7 @@
 			    <ul class="nav navbar-nav pull-right">
                 @if (Auth::check())
                         <li>
-                            <a href="">
+                            <a href="nguoidung">
                                 <span class ="glyphicon glyphicon-user"></span>
                                 {{ Auth::user()->name }}
                             </a>
@@ -44,7 +45,7 @@
                         </li>
                     @else
                         <li>
-                            <a href="#">Đăng ký</a>
+                            <a href="dangki">Đăng ký</a>
                         </li>
                         <li>
                             <a href="dangnhap">Đăng nhập</a>
